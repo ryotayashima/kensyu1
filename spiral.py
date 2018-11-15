@@ -20,4 +20,4 @@ def Run(ct,*args):
     print x_traj
     ct.robot.FollowXTraj(x_traj, t_traj)
 
-    
+   #aaa
