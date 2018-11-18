@@ -21,7 +21,7 @@ def Run(ct,*args):
     x1[0] += 0.3
     ct.robot.MoveToX(x1, 3.0, blocking = True)
     rospy.sleep(2)
-    # 掴む
+    # グリッパーで掴む
     ct.robot.OpenGripper()
     ct.robot.MoveGripper(0.1)
     # 初期位置に戻る
