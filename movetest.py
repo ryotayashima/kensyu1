@@ -12,6 +12,7 @@ def Run(ct,*args):
     q0[5] = 0.656946868009727
     q0[6] = 0.0010118998269884236
     ct.robot.MoveToQ(q0, 3.0, blocking = True)
+    rospy.sleep(2)
     # 初期位置固定
     x = list(ct.robot.FK())
     x0 = copy.deepcopy(x)
@@ -19,10 +20,12 @@ def Run(ct,*args):
     x1 = copy.deepcopy(x0)
     x1[0] += 0.3
     ct.robot.MoveToX(x1, 3.0, blocking = True)
+    rospy.sleep(2)
     # 掴む
     ct.robot.OpenGripper()
     ct.robot.MoveGripper(0.1)
     # 初期位置に戻る
     ct.robot.MoveToX(x0, 3.0, blocking = True)
+    rospy.sleep(2)
     # 離す
     ct.robot.OpenGripper()
