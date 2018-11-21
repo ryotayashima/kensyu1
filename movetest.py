@@ -18,7 +18,10 @@ def Run(ct,*args):
     x0 = copy.deepcopy(x)
     # 腕を伸ばす
     x1 = copy.deepcopy(x0)
-    x1[0] += 0.3
+    # x1[0] += 0.3
+    x1[0] = 0.7
+    # x1[1] = 0.5
+    # x1[2] = 0.5
     ct.robot.MoveToX(x1, 3.0, blocking = True)
     rospy.sleep(2)
     # グリッパーで掴む
