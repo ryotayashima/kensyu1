@@ -11,7 +11,7 @@ def Run(ct,*args):
     q0[4] = -0.00047771840080773566
     q0[5] = 0.656946868009727
     q0[6] = 0.0010118998269884236
-    ct.robot.MoveToQ(q0, 3.0, blocking = True)
+    ct.robot.MoveToQ(q0, 8.0, blocking = True)
     rospy.sleep(2)
     # 初期位置固定
     x = list(ct.robot.FK())
@@ -19,14 +19,20 @@ def Run(ct,*args):
     # 腕を伸ばす
     x1 = copy.deepcopy(x0)
     # x1[0] += 0.3
-    x1[0] = 0.7
-    # x1[1] = 0.5
-    # x1[2] = 0.5
+    x1[0] = 0.4
+    x1[1] = 0.1
+    x1[2] = 0.15
     ct.robot.MoveToX(x1, 3.0, blocking = True)
+    rospy.sleep(2)
+    x2 = copy.deepcopy(x1)
+    x2[0] = 0.5
+    x2[1] = 0.1
+    x2[2] = 0.19
+    ct.robot.MoveToX(x2, 3.0, blocking = True)
     rospy.sleep(2)
     # グリッパーで掴む
     ct.robot.OpenGripper()
-    ct.robot.MoveGripper(0.1)
+    ct.robot.MoveGripper(0.05)
     # 初期位置に戻る
     ct.robot.MoveToX(x0, 3.0, blocking = True)
     rospy.sleep(2)
