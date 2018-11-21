@@ -21,7 +21,7 @@ def Run(ct,*args):
     # x1[0] += 0.3
     x1[0] = 0.4
     x1[1] = 0.1
-    x1[2] = 0.15
+    x1[2] = 0.19
     ct.robot.MoveToX(x1, 3.0, blocking = True)
     rospy.sleep(2)
     x2 = copy.deepcopy(x1)
